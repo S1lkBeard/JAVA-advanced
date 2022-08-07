@@ -16,6 +16,5 @@ public class Calc {
         System.out.println("Введите дробное число");
         float pr2 = in.nextFloat();
         System.out.printf("%.4f", pr1 + pr2);
-        System.out.println("fdsf");
     }
 }
