@@ -45,7 +45,6 @@ public class Calculator {
 
 
     public double calculation() {
-        double res = 0;
         switch (operation) {
             case "+":
                 return fNumber + sNumber;
@@ -54,28 +53,12 @@ public class Calculator {
             case "*":
                 return fNumber * sNumber;
             case "/":
-                //добавил try-catch для деления на 0, но опытным путём установил, что при
-                //использовании переменных, отличных от byte и int, при делении на 0
-                //ошибка ArithmeticException не отлавливается
-                //при использовании переменных других типов (float, double, long)
-                //результатом деления на 0 является "Infinity"
-                //эту странную конструкцию с преобразованием из double в int добавил
-                //для отлавливания ArithmeticException
                 if (sNumber == 0) {
-                    int fNumberInt = (int) fNumber;
-                    int sNumberInt = (int) sNumber;
-                    try {
-                        res = fNumberInt / sNumberInt;
-                    } catch (ArithmeticException e3) {
-                        System.out.println("Делить на ноль можно, но не нужно");
-                        System.out.println("Ошибка: " + e3);
-                    }
-                } else {
-                    res = fNumber / sNumber;
+                    throw new ArithmeticException("Делить на ноль можно, но не нужно");
                 }
-                return res;
+                return fNumber / sNumber;
             default:
-                throw new UnsupportedOperationException("Некорректная операция, Введите +,-,/,*");
+                throw new UnsupportedOperationException("Введён некорректный математический оператор. Повторите попытку");
         }
     }
 }
