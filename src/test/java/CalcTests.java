@@ -35,7 +35,7 @@ public class CalcTests {
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void UnsupportedOperationException() {
+    public void testThrowUnsupportedOperationException() {
         Calculator calc = new Calculator(8, 4, "!");
         calc.calculation();
     }
