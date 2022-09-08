@@ -13,6 +13,7 @@ public class FileRead {
             String msv = scan.nextLine();
             System.out.println(msv);
             String[] words = msv.split(" ");
+            scan.close();
 
             //Сортировка слов в алфавитном порядке
             Arrays.sort(words);
