@@ -28,6 +28,18 @@ public class CalcTests {
         Assert.assertEquals(2, calc.calculation(), 0);
     }
 
+    @Test(expected = ArithmeticException.class)
+    public void testThrowArithmeticException() {
+        Calculator calc = new Calculator(8, 0, "/");
+        calc.calculation();
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void UnsupportedOperationException() {
+        Calculator calc = new Calculator(8, 4, "!");
+        calc.calculation();
+    }
+
     @Test
     public void testSetFirstNumber() {
         Calculator calc = new Calculator(8, 4, "+");
